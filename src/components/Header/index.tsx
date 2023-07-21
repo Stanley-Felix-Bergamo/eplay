@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom'
 
 //Styles
-import { HeaderBar, Links, LinkItem, LinkCart } from '../styles'
+import { HeaderBar, Links, LinkItem, LinkCart } from './styles'
 
 //Images
 import carrinho from '../../assets/images/carrinho.svg'

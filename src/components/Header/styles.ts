@@ -1,6 +1,6 @@
 //styles and styled
 import styled from 'styled-components'
-import { cores } from '../styles'
+import { cores } from '../../styles'
 
 export const HeaderBar = styled.header`
   background-color: ${cores.cinza};
