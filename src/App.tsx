@@ -1,4 +1,5 @@
 //react
+import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 
 //styles
@@ -10,17 +11,20 @@ import Footer from './components/Footer'
 
 //Routes
 import Rotas from './routes'
+import { store } from './store'
 
 function App() {
   return (
-    <BrowserRouter>
-      <GlobalCss />
-      <div className="container">
-        <Header />
-      </div>
-      <Rotas />
-      <Footer />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <GlobalCss />
+        <div className="container">
+          <Header />
+        </div>
+        <Rotas />
+        <Footer />
+      </BrowserRouter>
+    </Provider>
   )
 }
 
