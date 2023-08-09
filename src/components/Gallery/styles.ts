@@ -19,6 +19,7 @@ export const Action = styled.div`
 export const Itens = styled.ul`
   display: flex;
   gap: 16px;
+  flex-wrap: wrap;
 `
 export const Item = styled.li`
   position: relative;
