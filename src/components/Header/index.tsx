@@ -3,43 +3,75 @@ import { Link } from 'react-router-dom'
 import { open } from '../../store/reducers/cart'
 
 //Styles
-import { HeaderBar, Links, LinkItem, CartButton } from './styles'
+import {
+  HeaderBar,
+  Links,
+  LinkItem,
+  CartButton,
+  Hamburguer,
+  HeaderRow,
+  NavMobile
+} from './styles'
 
 //Images
 import carrinho from '../../assets/images/carrinho.svg'
 import logo from '../../assets/images/logo.svg'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
+import { useState } from 'react'
 
 const Header = () => {
   const dispatch = useDispatch()
   const { items } = useSelector((state: RootReducer) => state.cart)
   const openCart = () => dispatch(open())
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
     <HeaderBar>
-      <div>
-        <Link to="/">
-          <img src={logo} alt="Logo da Loja" />
-        </Link>
-        <nav>
-          <Links>
-            <LinkItem>
-              <Link to="/categories">Categorias</Link>
-            </LinkItem>
-            <LinkItem>
-              <a href="#">Novidades </a>
-            </LinkItem>
-            <LinkItem>
-              <a href="#">Promoções </a>
-            </LinkItem>
-          </Links>
-        </nav>
-      </div>
-      <CartButton onClick={openCart}>
-        {items.length} - produto(s)
-        <img src={carrinho} alt="Carrinho de compras" />
-      </CartButton>
+      <HeaderRow>
+        <div>
+          <Hamburguer onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <span />
+            <span />
+            <span />
+          </Hamburguer>
+        </div>
+        <div>
+          <Link to="/">
+            <img src={logo} alt="Logo da Loja" />
+          </Link>
+          <nav>
+            <Links>
+              <LinkItem>
+                <Link to="/categories">Categorias</Link>
+              </LinkItem>
+              <LinkItem>
+                <a href="#">Novidades </a>
+              </LinkItem>
+              <LinkItem>
+                <a href="#">Promoções </a>
+              </LinkItem>
+            </Links>
+          </nav>
+        </div>
+        <CartButton onClick={openCart}>
+          {items.length} <span>- produto(s)</span>
+          <img src={carrinho} alt="Carrinho de compras" />
+        </CartButton>
+      </HeaderRow>
+      <NavMobile className={isMenuOpen ? 'is-open' : ''}>
+        <Links>
+          <LinkItem>
+            <Link to="/categories">Categorias</Link>
+          </LinkItem>
+          <LinkItem>
+            <a href="#">Novidades </a>
+          </LinkItem>
+          <LinkItem>
+            <a href="#">Promoções </a>
+          </LinkItem>
+        </Links>
+      </NavMobile>
     </HeaderBar>
   )
 }
