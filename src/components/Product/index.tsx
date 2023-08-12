@@ -27,7 +27,10 @@ const Product = ({
     descricao.length > 95 ? descricao.slice(0, 92) + '...' : descricao
 
   return (
-    <Card to={`/product/${id}`}>
+    <Card
+      title={`Clique aqui para ver mais detalhes do: ${title}`}
+      to={`/product/${id}`}
+    >
       <img src={image} alt={title} />
       <Infos>
         {infos && infos.map((infos) => <Tag key={infos}>{infos}</Tag>)}
