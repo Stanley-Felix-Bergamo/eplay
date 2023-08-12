@@ -10,7 +10,6 @@ import play from '../../assets/images/play.png'
 import fechar from '../../assets/images/fechar.png'
 
 //Pages
-import { GalleryItem } from '../../pages/Home'
 
 type Props = {
   defaultCover: string

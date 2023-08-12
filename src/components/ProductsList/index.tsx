@@ -1,8 +1,6 @@
 //Styles
 import { Container, List, Title } from './styled'
 
-import { Game } from '../../pages/Home'
-
 //Components
 import Product from '../Product'
 import { formataPreco } from '../../utils'

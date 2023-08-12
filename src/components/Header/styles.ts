@@ -17,10 +17,14 @@ export const HeaderBar = styled.header`
   padding: 24px;
   border-radius: 16px;
   margin-bottom: 80px;
-  cursor: pointer;
-  a {
+
+  a,
+  span {
     color: ${cores.branca};
     font-weight: bold;
+  }
+  h1 {
+    line-height: 0px;
   }
 `
 
@@ -64,7 +68,7 @@ export const LinkItem = styled.li`
   }
 `
 
-export const CartButton = styled.a`
+export const CartButton = styled.span`
   display: flex;
   cursor: pointer;
 
